@@ -43,4 +43,8 @@ Route::prefix('categories')->group(function () {
         'as' =>'categories.delete',
         'uses'=>'CategoryController@delete'
     ]);
+    Route::post('/update/{id}', [
+        'as' =>'categories.update',
+        'uses'=>'CategoryController@update'
+    ]);
 });

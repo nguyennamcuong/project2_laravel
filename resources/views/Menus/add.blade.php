@@ -23,6 +23,7 @@
                                 <label>Chọn menu cha</label>
                                 <select class="form-control" name="parent_id">
                                     <option value="0">Chọn menu cha</option>
+                                    {!!$optionSelect!!}
                                 </select>
                             </div>
 

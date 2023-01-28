@@ -24,7 +24,8 @@ class MenuController extends Controller
     public function store(Request $request){
         $this->menu->create([
             'name' => $request->name,
-            'parent_id'=>$request->parent_id
+            'parent_id'=>$request->parent_id,
+            'slug' =>str_slug($request->name)
         ]);
         return redirect()->route('menus.index');
     }

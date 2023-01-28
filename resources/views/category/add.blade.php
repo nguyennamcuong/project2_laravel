@@ -16,6 +16,7 @@
                 <div class="row">
                     <div class="col-md-6" >
                         <form action="{{route('categories.store')}}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <label>Tên danh mục</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục">
@@ -23,7 +24,7 @@
 
                             <div class="form-group">
                                 <label>Chọn danh mục</label>
-                                <select class="form-control">
+                                <select class="form-control" name="parent_id">
                                     <option value="0">Chọn danh mục cha</option>
                                     {!! $htmlOption !!}
                                 </select>

@@ -2,19 +2,22 @@
 namespace App\Components;
 
 
+use App\Category;
+
 class Recusive {
 
     private $data;
     private $htmlSelect = '';
-    public function construct($data){
+
+    public function __construct($data){
         $this->data = $data;
     }
 
   public function categoryRecusive($id = 0, $text = '')
     {
-        foreach ($this->data as $value) {
+                foreach ($this->data as $value) {
             if ($value['parent_id'] == $id) {
-                $this->htmlSelect .= "<option>" . $text . $value['name'] . "</option>";
+                $this->htmlSelect .= "<option value='".$value['id']."'>" . $text . $value['name'] . "</option>";
                 $this->categoryRecusive($value['id'], $text.'->');
             }
         }

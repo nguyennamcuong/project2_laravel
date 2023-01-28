@@ -35,4 +35,12 @@ Route::prefix('categories')->group(function () {
         'as' =>'categories.store',
         'uses'=>'CategoryController@store'
     ]);
+    Route::get('/edit/{id}', [
+        'as' =>'categories.edit',
+        'uses'=>'CategoryController@edit'
+    ]);
+    Route::get('/delete/{id}', [
+        'as' =>'categories.delete',
+        'uses'=>'CategoryController@delete'
+    ]);
 });

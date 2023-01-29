@@ -29,4 +29,21 @@ class MenuController extends Controller
         ]);
         return redirect()->route('menus.index');
     }
+
+    public function edit($id, Request $request)
+    {       $menuFollowEdit = $this->menu->find($id);
+            $optionSelect = $this->menuRecusive->menuRecusiveEdit($menuFollowEdit->parent_id);
+            return view('menus.edit',compact('optionSelect','menuFollowEdit'));
+    }
+    public function update($id, Request $request){
+        $this->menu->find($id)->update(
+            [
+                'name' =>$request->name,
+                'parent_id' => $request->parent_id,
+                'slug'=> str_slug($request->name)
+            ]
+        );
+        return redirect()->route('menus.index');
+
+    }
 }

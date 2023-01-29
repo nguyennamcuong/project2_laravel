@@ -32,7 +32,7 @@
                                     <th scope="row">{{ $menu->id }}</th>
                                     <td>{{ $menu->name }}</td>
                                     <td>
-                                        <a href="" class="btn btn-default ">Edit</a>
+                                        <a href="{{route('menus.edit',['id'=>$menu->id])}}" class="btn btn-default ">Edit</a>
                                         <a href=""class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

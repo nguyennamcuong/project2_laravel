@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'AdminController@loginAdmin');
+Route::post('/', 'AdminController@postLoginAdmin');
 
 
 Route::get('/home', function () {

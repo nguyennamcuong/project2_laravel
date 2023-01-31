@@ -1,3 +1,6 @@
 .select2-selection__choice{
     background-color: #1b2d1f !important;
 }
+.container_image_detail, .feature_image{
+    margin-top: 20px;
+}

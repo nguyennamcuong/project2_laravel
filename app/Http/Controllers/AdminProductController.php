@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\DeclareDeclare;
 
 
 class AdminProductController extends Controller
@@ -100,5 +101,12 @@ class AdminProductController extends Controller
         }
 
 
+    }
+
+    public function edit($id){
+        $product = $this->product->find($id);
+        $htmlOption = $this->getCategory($parentId = '');
+
+        return view('admin.product.edit',compact('htmlOption','product'));
     }
 }

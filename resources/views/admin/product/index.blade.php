@@ -5,6 +5,13 @@
 
 @endsection
 
+@section('css')
+<link rel="stylesheet" href="{{asset('admins/product/index/list.css')}}">
+@endsection
+
+@section('js')
+@endsection
+
 @section('content')
     <div class="content-wrapper">
         @include('partials.content-header',['name' => 'product', 'key' => 'List'])
@@ -24,34 +31,35 @@
                                 <th scope="col">Giá</th>
                                 <th scope="col">Hinh ảnh</th>
                                 <th scope="col">Danh mục</th>
-                                <th scope="col"><Acti></Acti>on</th>
+                                <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
 
-{{--                            @foreach($categories as $category)--}}
+                            @foreach($products as $productItem)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>ip10</td>
-                                    <td>2.33333.333</td>
+                                    <th scope="row">{{$productItem->id}}</th>
+                                    <td>{{$productItem->name}}</td>
+                                    <td>{{$productItem->price}}</td>
                                     <td>
-                                        <img src="">
+                                        <img class="product_image_150_100" src="{{$productItem->feature_image_path}}">
                                     </td>
-                                    <td>Dien thoai</td>
+
+                                    <td>{{$productItem->category->name}}</td>
                                     <td>
                                         <a href="" class="btn btn-default">Edit</a>
                                         <a href="" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
-{{--                            @endforeach--}}
+                            @endforeach
 
                             </tbody>
                         </table>
 
                     </div>
                     <div class="col-md-12">
-{{--                        {{ $categories->links() }}--}}
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

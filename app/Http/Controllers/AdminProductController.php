@@ -54,7 +54,7 @@ class AdminProductController extends Controller
         return $htmlOption;
     }
 
-    public function store(ProductAddRequest $request){
+    public function store(Request $request){
         try {
             DB::beginTransaction();
             $dataProductCreate  = [
